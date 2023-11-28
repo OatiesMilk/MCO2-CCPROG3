@@ -1,3 +1,6 @@
+/**
+ * This class is my main menu window
+ */
 import javax.swing.JFrame;
 
 public class MainMenu extends JFrame {
@@ -70,7 +73,6 @@ public class MainMenu extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
-        // TODO add your handling code here:
         dispose();
         new InventoryPage();
     }//GEN-LAST:event_inventoryButtonActionPerformed

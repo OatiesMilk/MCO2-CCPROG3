@@ -1,3 +1,6 @@
+/**
+ * This class is my area three window
+ */
 import java.awt.Image;
 import java.util.Random;
 import javax.swing.ImageIcon;
@@ -20,6 +23,9 @@ public class AreaThree extends javax.swing.JFrame {
     int playerPosX = -1;
     int playerPosY = -1;
     
+    /**
+     * This is my default constructor
+     */
     public AreaThree() {
         initAreaThree();
         
@@ -27,6 +33,11 @@ public class AreaThree extends javax.swing.JFrame {
         tile1.setIcon(resizeIcon(player_icon, 40, 40));
     }
     
+    /**
+     * 
+     * @param x: position of the player in the x-coordinate
+     * @param y: position of the player in the y-coordinate
+     */
     public AreaThree(int x, int y) {
         initAreaThree();
         
@@ -34,6 +45,9 @@ public class AreaThree extends javax.swing.JFrame {
         tiles_list[x][y].setIcon(resizeIcon(player_icon, 40, 40));
     }
     
+    /**
+     * initializes my areaThree window
+     */
     public void initAreaThree() {
         initComponents();
         this.setTitle("Area Three");
@@ -74,7 +88,10 @@ public class AreaThree extends javax.swing.JFrame {
         tiles_list[3][3] = tile16;
     }
     
-    // method to implement in encountering an enemy 
+    /**
+     * 
+     * @return an int: 1 for battle, 0 for no battle
+     */
     private int encounterEnemy() {
         // Generate a random number between 0 and 99
         int randomChance = new Random().nextInt(100);
@@ -89,7 +106,13 @@ public class AreaThree extends javax.swing.JFrame {
         }
     }
     
-    // method to resize ImageIcon
+    /**
+     * 
+     * @param icon
+     * @param width
+     * @param height
+     * @return the resized image
+     */
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image image = icon.getImage();
         Image resizedImage = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
@@ -410,7 +433,7 @@ public class AreaThree extends javax.swing.JFrame {
             
             if (encounterEnemy() == 1) {
                 // function call for battle phase
-                new BattlePhase(this, playerPosX - 1, playerPosY);
+                new BattlePhase("three", playerPosX - 1, playerPosY);
                 dispose();
             }
         }
@@ -438,7 +461,7 @@ public class AreaThree extends javax.swing.JFrame {
             
             if (encounterEnemy() == 1) {
                 // function call for battle phase
-                new BattlePhase(this, playerPosX + 1, playerPosY);
+                new BattlePhase("three", playerPosX + 1, playerPosY);
                 dispose();
             }
         }
@@ -466,7 +489,7 @@ public class AreaThree extends javax.swing.JFrame {
             
             if (encounterEnemy() == 1) {
                 // function call for battle phase
-                new BattlePhase(this, playerPosX, playerPosY + 1);
+                new BattlePhase("three", playerPosX, playerPosY + 1);
                 dispose();
             }
         }
@@ -494,7 +517,7 @@ public class AreaThree extends javax.swing.JFrame {
             
             if (encounterEnemy() == 1) {
                 // function call for battle phase
-                new BattlePhase(this, playerPosX, playerPosY - 1);
+                new BattlePhase("three", playerPosX, playerPosY - 1);
                 dispose();
             }
         }

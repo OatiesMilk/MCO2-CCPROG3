@@ -1,3 +1,7 @@
+/**
+ * This class is my battle phase window
+ */
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,29 +32,23 @@ public class BattlePhase extends javax.swing.JFrame {
     private int enemyRandomIndex;
     private int actionCounter = 3;
     
-    public BattlePhase(int x, int y) {
-        this.area = "one";
+    
+    /**
+     * @param x: player position in the x-coordinate
+     * @param y: player position in the y-coordinate
+     * This is default constructor
+     */
+    public BattlePhase(String area, int x, int y) {
+        this.area = area;
         this. playerPosX = x;
         this.playerPosY = y;
         initBattlePhase();
         activeCreatureDetails();
     }
     
-    public BattlePhase(AreaTwo areaTwo, int x, int y) {
-        this.area = "two";
-        this. playerPosX = x;
-        this.playerPosY = y;
-        initBattlePhase();
-        activeCreatureDetails();
-    }
-    public BattlePhase(AreaThree areaThree, int x, int y) {
-        this.area = "three";
-        this. playerPosX = x;
-        this.playerPosY = y;
-        initBattlePhase();
-        activeCreatureDetails();
-    }
-    
+    /**
+     * initializing the battle phase window
+     */
     public final void initBattlePhase() {
         initComponents();
         this.setTitle("Battle Phase");
@@ -109,6 +107,9 @@ public class BattlePhase extends javax.swing.JFrame {
         swap_status_label.setText("");
     }
     
+    /**
+     * updating the creature's information that is being displayed
+     */
     private void activeCreatureDetails() {
         for (Creatures creature : Creatures.owned_creatures_list) {
             if (creature.activeCreature == true) {
@@ -119,11 +120,20 @@ public class BattlePhase extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * updates the visual display of the enemy's health
+     */
     private void updateHealth() {
         enemy_health_bar.setValue(enemyHealth);
     }
     
-    // method to resize ImageIcon
+    /**
+     * 
+     * @param icon
+     * @param width
+     * @param height
+     * @return the resized image
+     */
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image image = icon.getImage();
         Image resizedImage = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);

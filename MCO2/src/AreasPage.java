@@ -1,6 +1,12 @@
+/**
+ * This class is my areas option window
+ */
 import javax.swing.JFrame;
 
 public class AreasPage extends JFrame {
+    /**
+     * This is my default constructor
+     */
     public AreasPage() {
         initComponents();
         this.setTitle("Area Options");

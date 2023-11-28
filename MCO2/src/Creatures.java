@@ -1,8 +1,13 @@
+/**
+ * This class is for setting the information of my creatures
+ */
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public class Creatures {
-    // icons
+    /**
+     * These are my variables
+     */
     public static String grass_url = "src\\Images\\grassIcon.png";
     public static String water_url = "src\\Images\\waterIcon.png";
     public static String fire_url = "src\\Images\\fireIcon.png";
@@ -18,7 +23,16 @@ public class Creatures {
     public ImageIcon creatureTypePicture;
     public int creatureCount;
     
-    // my Creatures constructor
+    /**
+     * 
+     * @param name
+     * @param type
+     * @param family
+     * @param EL
+     * @param count 
+     * 
+     * This is my constructor for creating creatures
+     */
     public Creatures(String name, String type, String family, int EL, int count) {
         this.creatureName = name;
         this.creatureType = type;

@@ -1,3 +1,7 @@
+/**
+ * This is my evolution page window
+ */
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +14,9 @@ public class EvolutionPage extends javax.swing.JFrame {
     private Creatures creature1;
     private Creatures creature2;
     
+    /**
+     * this is my default constructor
+     */
     public EvolutionPage() {
         initComponents();
         this.setTitle("Evolution Page");
@@ -41,13 +48,24 @@ public class EvolutionPage extends javax.swing.JFrame {
         comboBox2.setSelectedItem(Creatures.owned_creatures_list.get(1).creatureName);
     }
     
+    /**
+     * 
+     * @param index 
+     * this method deletes a creature using the given index
+     */
     public void deleteCreature(int index) {
         if (index >= 0 && index < Creatures.owned_creatures_list.size()) {
             Creatures.owned_creatures_list.remove(index);
         }
     }
     
-    // Method to resize ImageIcon
+    /**
+     * 
+     * @param icon
+     * @param width
+     * @param height
+     * @return the resized image
+     */
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image image = icon.getImage();
         Image resizedImage = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);

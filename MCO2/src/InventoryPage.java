@@ -1,3 +1,6 @@
+/**
+ * This class is my inventory window
+ */
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -48,7 +51,6 @@ public class InventoryPage extends JFrame {
         inventory_gif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(285, 498));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 600));
 

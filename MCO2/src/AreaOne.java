@@ -1,3 +1,6 @@
+/**
+ * This class is my area one window
+ */
 import java.awt.Image;
 import java.util.Random;
 import javax.swing.ImageIcon;
@@ -62,14 +65,23 @@ public class AreaOne extends javax.swing.JFrame {
         tiles_list[0][4] = tile5;
     }
     
-    // Method to resize ImageIcon
+    /**
+     * 
+     * @param icon
+     * @param width
+     * @param height
+     * @return the resized image
+     */
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image image = icon.getImage();
         Image resizedImage = image.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);
     }
     
-    // method to implement in encountering an enemy 
+    /**
+     * 
+     * @return an int: 1 for battle, 0 for no battle
+     */
     private int encounterEnemy() {
         // Generate a random number between 0 and 99
         int randomChance = new Random().nextInt(100);
@@ -338,7 +350,7 @@ public class AreaOne extends javax.swing.JFrame {
             
             if (encounterEnemy() == 1) {
                 // function call for battle phase
-                new BattlePhase(playerPosX, playerPosY + 1);
+                new BattlePhase("one", playerPosX, playerPosY + 1);
                 dispose();
             }
         }
@@ -366,7 +378,7 @@ public class AreaOne extends javax.swing.JFrame {
             
             if (encounterEnemy() == 1) {
                 // function call for battle phase
-                new BattlePhase(playerPosX, playerPosY - 1);
+                new BattlePhase("one", playerPosX, playerPosY - 1);
                 dispose();
             }
         }

@@ -1,12 +1,20 @@
+/**
+ * @author Dylan Lee B. Akia
+ * @version 1.8
+ */
 public class MainApplication {
     public static void main(String[] args) throws Exception {
-        // creating the starter creatures
+        /**
+         * Represents my starting creatures
+         */
         Creatures.owned_creatures_list.add(new Creatures("Strawander", "Fire", "A", 1, 2));
         Creatures.owned_creatures_list.add(new Creatures("Squirpie", "Water", "G", 1, 2));
         Creatures.owned_creatures_list.add(new Creatures("Brownisaur", "Grass", "D", 1, 2));
         Creatures.owned_creatures_list.add(new Creatures("Candaros", "Fire", "B", 3, 2));
         
-        // adding creatures to my creatures_list
+        /**
+         * Represents all of my creatures
+         */
         Creatures.creatures_list.add(new Creatures("Strawander", "Fire", "A", 1, 1));
         Creatures.creatures_list.add(new Creatures("Straweleon", "Fire", "A", 2, 1));
         Creatures.creatures_list.add(new Creatures("Strawizard", "Fire", "A", 3, 1));
@@ -43,7 +51,9 @@ public class MainApplication {
         Creatures.creatures_list.add(new Creatures("Dewice", "Water", "I", 2, 1));
         Creatures.creatures_list.add(new Creatures("Samurcone", "Water", "I", 3, 1));
         
-        // setting the a default active creature
+        /**
+         * This sets the default active creature
+         */
         Creatures.owned_creatures_list.get(0).activeCreature = true;
         new MainMenu();
     }

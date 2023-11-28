@@ -1,0 +1,363 @@
+@startuml
+
+title __CLASSES's Class Diagram__\n
+
+  namespace  {
+    class AreaOne {
+        ~ playerPosX : int
+        ~ playerPosY : int
+        ~ tiles_list : JButton[][]
+        - active_pokemon : JLabel
+        - active_pokemon_label : JLabel
+        - board_panel : JPanel
+        - center_button : JButton
+        - center_icon : ImageIcon
+        - creature_el : JLabel
+        - creature_el_label : JLabel
+        - down_button : JButton
+        - down_icon : ImageIcon
+        - left_button : JButton
+        - left_icon : ImageIcon
+        - mainmenu_button : JButton
+        - movement_panel : JPanel
+        - player_icon : ImageIcon
+        - pokemon_panel : JPanel
+        - pokemon_picture_label : JLabel
+        - pokemon_type_label : JLabel
+        - right_button : JButton
+        - right_icon : ImageIcon
+        - tile1 : JButton
+        - tile2 : JButton
+        - tile3 : JButton
+        - tile4 : JButton
+        - tile5 : JButton
+        - up_button : JButton
+        - up_icon : ImageIcon
+        + AreaOne()
+        + AreaOne()
+        + initAreaOne()
+        - encounterEnemy()
+        - initComponents()
+        - left_buttonActionPerformed()
+        - mainmenu_buttonActionPerformed()
+        - resizeIcon()
+        - right_buttonActionPerformed()
+    }
+  }
+  
+
+  namespace  {
+    class AreaThree {
+        ~ center_icon : ImageIcon
+        ~ down_icon : ImageIcon
+        ~ left_icon : ImageIcon
+        ~ playerPosX : int
+        ~ playerPosY : int
+        ~ player_icon : ImageIcon
+        ~ right_icon : ImageIcon
+        ~ tiles_list : JButton[][]
+        ~ up_icon : ImageIcon
+        - active_pokemon : JLabel
+        - active_pokemon_label : JLabel
+        - board_panel : JPanel
+        - center_button : JButton
+        - creature_el : JLabel
+        - creature_el_label : JLabel
+        - down_button : JButton
+        - left_button : JButton
+        - mainmenu_button : JButton
+        - movement_panel : JPanel
+        - pokemon_panel : JPanel
+        - pokemon_picture_label : JLabel
+        - pokemon_type_label : JLabel
+        - right_button : JButton
+        - tile1 : JButton
+        - tile10 : JButton
+        - tile11 : JButton
+        - tile12 : JButton
+        - tile13 : JButton
+        - tile14 : JButton
+        - tile15 : JButton
+        - tile16 : JButton
+        - tile2 : JButton
+        - tile3 : JButton
+        - tile4 : JButton
+        - tile5 : JButton
+        - tile6 : JButton
+        - tile7 : JButton
+        - tile8 : JButton
+        - tile9 : JButton
+        - up_button : JButton
+        + AreaThree()
+        + AreaThree()
+        + initAreaThree()
+        - down_buttonActionPerformed()
+        - encounterEnemy()
+        - initComponents()
+        - left_buttonActionPerformed()
+        - mainmenu_buttonActionPerformed()
+        - resizeIcon()
+        - right_buttonActionPerformed()
+        - up_buttonActionPerformed()
+    }
+  }
+  
+
+  namespace  {
+    class AreaTwo {
+        ~ center_icon : ImageIcon
+        ~ down_icon : ImageIcon
+        ~ left_icon : ImageIcon
+        ~ playerPosX : int
+        ~ playerPosY : int
+        ~ player_icon : ImageIcon
+        ~ right_icon : ImageIcon
+        ~ tiles_list : JButton[][]
+        ~ up_icon : ImageIcon
+        - active_pokemon : JLabel
+        - active_pokemon_label : JLabel
+        - board_panel : JPanel
+        - center_button : JButton
+        - creature_el : JLabel
+        - creature_el_label : JLabel
+        - down_button : JButton
+        - left_button : JButton
+        - mainmenu_button : JButton
+        - movement_panel : JPanel
+        - pokemon_panel : JPanel
+        - pokemon_picture_label : JLabel
+        - pokemon_type_label : JLabel
+        - right_button : JButton
+        - tile1 : JButton
+        - tile2 : JButton
+        - tile3 : JButton
+        - tile4 : JButton
+        - tile5 : JButton
+        - tile6 : JButton
+        - tile7 : JButton
+        - tile8 : JButton
+        - tile9 : JButton
+        - up_button : JButton
+        + AreaTwo()
+        + AreaTwo()
+        + initAreaTwo()
+        - down_buttonActionPerformed()
+        - encounterEnemy()
+        - initComponents()
+        - left_buttonActionPerformed()
+        - mainmenu_buttonActionPerformed()
+        - resizeIcon()
+        - right_buttonActionPerformed()
+        - up_buttonActionPerformed()
+    }
+  }
+  
+
+  namespace  {
+    class AreasPage {
+        - AreaOne : JButton
+        - AreaThree : JButton
+        - AreaTwo : JButton
+        - areaspage_gif : JLabel
+        - mainmenu_button : JButton
+        - panel : JPanel
+        + AreasPage()
+        - AreaOneActionPerformed()
+        - AreaThreeActionPerformed()
+        - AreaTwoActionPerformed()
+        - initComponents()
+        - mainmenu_buttonActionPerformed()
+    }
+  }
+  
+
+  namespace  {
+    class BattlePhase {
+        - actionCounter : int
+        - action_counter : JLabel
+        - action_label : JLabel
+        - area : String
+        - attack_button : JButton
+        - attack_icon : ImageIcon
+        - battle_panel : JPanel
+        - capture_button : JButton
+        - capture_icon : ImageIcon
+        - capture_label : JLabel
+        - comboBox : JComboBox<String>
+        - creature_el : JLabel
+        - creature_el_label : JLabel
+        - creature_info_panel : JPanel
+        - creature_name : JLabel
+        - creature_name_label : JLabel
+        - creature_type_icon : JLabel
+        - damage_label : JLabel
+        - enemyHealth : int
+        - enemyRandomIndex : int
+        - enemy_el : JLabel
+        - enemy_el_label : JLabel
+        - enemy_health_bar : JProgressBar
+        - enemy_health_icon : JLabel
+        - enemy_list_one : ArrayList<Creatures>
+        - enemy_list_three : ArrayList<Creatures>
+        - enemy_list_two : ArrayList<Creatures>
+        - enemy_name : JLabel
+        - enemy_name_label : JLabel
+        - enemy_picture : JLabel
+        - enemy_runs_label : JLabel
+        - enemy_type_icon : JLabel
+        - health_icon : ImageIcon
+        - playerPosX : int
+        - playerPosY : int
+        - run_button : JButton
+        - run_icon : ImageIcon
+        - swap_button : JButton
+        - swap_icon : ImageIcon
+        - swap_status_label : JLabel
+        + BattlePhase()
+        + BattlePhase()
+        + BattlePhase()
+        + initBattlePhase()
+        - activeCreatureDetails()
+        - attack_buttonActionPerformed()
+        - capture_buttonActionPerformed()
+        - comboBoxActionPerformed()
+        - initComponents()
+        - resizeIcon()
+        - run_buttonActionPerformed()
+        - swap_buttonActionPerformed()
+        - updateHealth()
+    }
+  }
+  
+
+  namespace  {
+    class Creatures {
+        + activeCreature : boolean
+        + creatureCount : int
+        + creatureEL : int
+        + creatureFamily : String
+        + creatureName : String
+        + creaturePicture : ImageIcon
+        + creatureType : String
+        + creatureTypePicture : ImageIcon
+        {static} + creatures_list : ArrayList<Creatures>
+        {static} + fire_url : String
+        {static} + grass_url : String
+        {static} + owned_creatures_list : ArrayList<Creatures>
+        {static} + water_url : String
+        + Creatures()
+        + getCreatureName()
+        + setActiveCreature()
+        + setCreatureName()
+    }
+  }
+  
+
+  namespace  {
+    class EvolutionPage {
+        - comboBox1 : JComboBox<String>
+        - comboBox2 : JComboBox<String>
+        - creature1_el : JLabel
+        - creature1_el_label : JLabel
+        - creature1_name : JLabel
+        - creature1_name_label : JLabel
+        - creature1_picture : JLabel
+        - creature1_type : JLabel
+        - creature2_el : JLabel
+        - creature2_el_label : JLabel
+        - creature2_name : JLabel
+        - creature2_name_label : JLabel
+        - creature2_picture : JLabel
+        - creature2_type : JLabel
+        - evolution_gif : JLabel
+        - evolution_status : JLabel
+        - evolve_button : JButton
+        - evolve_icon : ImageIcon
+        - evolved_label : JLabel
+        - jPanel1 : JPanel
+        - mainmenu_button : JButton
+        + EvolutionPage()
+        + deleteCreature()
+        - comboBox1ActionPerformed()
+        - comboBox2ActionPerformed()
+        - evolve_buttonActionPerformed()
+        - initComponents()
+        - mainmenu_buttonActionPerformed()
+        - resizeIcon()
+    }
+  }
+  
+
+  namespace  {
+    class InventoryPage {
+        - active_pokemon : JButton
+        - comboBox : JComboBox<String>
+        - creature_count : JLabel
+        - creature_count_label : JLabel
+        - creature_el : JLabel
+        - creature_el_label : JLabel
+        - familyLabel : JLabel
+        - family_label : JLabel
+        - info_panel : JPanel
+        - inventory_gif : JLabel
+        - mainmenuButton : JButton
+        - panel : JPanel
+        - pokemon_picture_label : JLabel
+        - pokemon_type_label : JLabel
+        - typeLabel : JLabel
+        - type_label : JLabel
+        + InventoryPage()
+        - active_pokemonActionPerformed()
+        - comboBoxActionPerformed()
+        - initComponents()
+        - mainmenuButtonActionPerformed()
+        - resizeIcon()
+    }
+  }
+  
+
+  namespace  {
+    class MainApplication {
+        + MainApplication()
+        {static} + main()
+    }
+  }
+  
+
+  namespace  {
+    class MainMenu {
+        - areasButton : JButton
+        - evolutionButton : JButton
+        - inventoryButton : JButton
+        - mainmenu_gif : JLabel
+        - panel : JPanel
+        + MainMenu()
+        - areasButtonActionPerformed()
+        - evolutionButtonActionPerformed()
+        - initComponents()
+        - inventoryButtonActionPerformed()
+    }
+  }
+  
+
+  AreaOne -up-|> javax.swing.JFrame
+  AreaThree -up-|> javax.swing.JFrame
+  AreaTwo -up-|> javax.swing.JFrame
+  AreasPage -up-|> javax.swing.JFrame
+  BattlePhase -up-|> javax.swing.JFrame
+  BattlePhase o-- Creatures : enemy
+  EvolutionPage -up-|> javax.swing.JFrame
+  EvolutionPage o-- Creatures : creature1
+  EvolutionPage o-- Creatures : creature2
+  InventoryPage -up-|> javax.swing.JFrame
+  MainMenu -up-|> javax.swing.JFrame
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
