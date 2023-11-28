@@ -356,16 +356,15 @@ public class BattlePhase extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, battle_panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(battle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(battle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(battle_panelLayout.createSequentialGroup()
-                            .addGroup(battle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(enemy_name_label)
-                                .addComponent(enemy_name))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(battle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(enemy_el_label)
-                                .addComponent(enemy_el)))
-                        .addComponent(enemy_type_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(battle_panelLayout.createSequentialGroup()
+                        .addGroup(battle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enemy_name_label)
+                            .addComponent(enemy_name))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(battle_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enemy_el_label)
+                            .addComponent(enemy_el)))
+                    .addComponent(enemy_type_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enemy_health_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(battle_panelLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
@@ -424,7 +423,7 @@ public class BattlePhase extends javax.swing.JFrame {
     private void swap_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swap_buttonActionPerformed
         String selected_pokemon = (String) comboBox.getSelectedItem();
         swap_status_label.setText("Creature swapped!");
-        Timer timer1 = new Timer(2000, new ActionListener() {
+        Timer timer1 = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 swap_status_label.setText("");
@@ -501,9 +500,12 @@ public class BattlePhase extends javax.swing.JFrame {
 
             enemyHealth -= randomNum;
             damage_label.setText("- " + String.valueOf(randomNum));
+            updateHealth();
+            actionCounter -= 1;
+            action_counter.setText(String.valueOf(actionCounter));
 
             // make the damage_label not visible after a delay
-            Timer timer = new Timer(2000, new ActionListener() {
+            Timer timer = new Timer(1000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     damage_label.setText("");
@@ -512,48 +514,75 @@ public class BattlePhase extends javax.swing.JFrame {
             timer.setRepeats(false);
             timer.start();
 
-            if (enemyHealth <= 0) {
-                if (area.equalsIgnoreCase("one")) {
-                    new AreaOne(playerPosX, playerPosY);
-                } else if (area.equalsIgnoreCase("two")) {
-                    new AreaTwo(playerPosX, playerPosY);
-                } else if (area.equalsIgnoreCase("three")) {
-                    new AreaThree(playerPosX, playerPosY);
-                }
+            if (enemyHealth <= 0 || actionCounter == 0) {
+                if (enemyHealth <= 0 && actionCounter >= 0) {
+                    if (area.equalsIgnoreCase("one")) {
+                        enemy_runs_label.setText("You killed the enemy!");
 
-                dispose();
-            }
+                        Timer timer1 = new Timer(1000, new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                new AreaOne(playerPosX, playerPosY);
+                                dispose();
+                            }
+                        });
+                        timer1.setRepeats(false);
+                        timer1.start();
 
-            updateHealth();
-            actionCounter -= 1;
-            action_counter.setText(String.valueOf(actionCounter));
+                    } else if (area.equalsIgnoreCase("two")) {
+                        enemy_runs_label.setText("You killed the enemy!");
 
-            if (actionCounter == 0) {
-                action_counter.setText("No more actions left!");
-                enemy_runs_label.setText("Enemy running away!");
+                        Timer timer1 = new Timer(1000, new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                new AreaTwo(playerPosX, playerPosY);
+                                dispose();
+                            }
+                        });
+                        timer1.setRepeats(false);
+                        timer1.start();
 
-                Timer timer1 = new Timer(2000, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (area.equalsIgnoreCase("one")) {
-                            new AreaOne(playerPosX, playerPosY);
-                        } else if (area.equalsIgnoreCase("two")) {
-                            new AreaTwo(playerPosX, playerPosY);
-                        } else if (area.equalsIgnoreCase("three")) {
-                            new AreaThree(playerPosX, playerPosY);
-                        }
+                    } else if (area.equalsIgnoreCase("three")) {
+                        enemy_runs_label.setText("You killed the enemy!");
 
-                        dispose();
+                        Timer timer1 = new Timer(1000, new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                new AreaThree(playerPosX, playerPosY);
+                                dispose();
+                            }
+                        });
+                        timer1.setRepeats(false);
+                        timer1.start();
                     }
-                });
-                timer1.setRepeats(false);
-                timer1.start();
+                    
+                } else if (actionCounter == 0 && enemyHealth > 0) {
+                    enemy_runs_label.setText("Enemy running away!");
+
+                    Timer timer1 = new Timer(2000, new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            if (area.equalsIgnoreCase("one")) {
+                                new AreaOne(playerPosX, playerPosY);
+                            } else if (area.equalsIgnoreCase("two")) {
+                                new AreaTwo(playerPosX, playerPosY);
+                            } else if (area.equalsIgnoreCase("three")) {
+                                new AreaThree(playerPosX, playerPosY);
+                            }
+
+                            dispose();
+                        }
+                    });
+                    timer1.setRepeats(false);
+                    timer1.start();
+                }
             }
         }
     }//GEN-LAST:event_attack_buttonActionPerformed
 
     private void capture_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capture_buttonActionPerformed
         boolean captureResult;
+        boolean creatureFound = false;
         int chance = 40 + 50 - enemyHealth;
         int randomNum = new Random().nextInt(100);
         
@@ -562,14 +591,22 @@ public class BattlePhase extends javax.swing.JFrame {
             action_counter.setText(String.valueOf(actionCounter));
             
             if (randomNum < chance) {
-                // Capture successful
-                System.out.println("Capture successful!");
                 // add the captured enemy to your owned creatures list
-                Creatures.owned_creatures_list.add(enemy);
+                
+                for (Creatures creature : Creatures.owned_creatures_list) {
+                    if (enemy.creatureName.equalsIgnoreCase(creature.creatureName)) {
+                        creature.creatureCount += 1;
+                        creatureFound = true;
+                        break;
+                    }
+                }
+                
+                if (!creatureFound) {
+                    Creatures.owned_creatures_list.add(enemy);
+                }
+                
                 captureResult = true;
             } else {
-                // Capture failed
-                System.out.println("Capture failed.");
                 captureResult = false;
             }
 
@@ -583,7 +620,7 @@ public class BattlePhase extends javax.swing.JFrame {
                     capture_label.setText("Capture Success!");
                 } else if (captureResult == false) {
                     capture_label.setText("Capture Failed!");
-                    Timer timer = new Timer(3000, new ActionListener() {
+                    Timer timer = new Timer(1000, new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             capture_label.setText("");
@@ -597,7 +634,7 @@ public class BattlePhase extends javax.swing.JFrame {
                 
                 if (captureResult == true || actionCounter == 0) {
                     // start a timer to see the capture result before exiting the battle phase
-                    Timer timer = new Timer(3000, new ActionListener() {
+                    Timer timer = new Timer(1000, new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             if (area.equalsIgnoreCase("one")) {

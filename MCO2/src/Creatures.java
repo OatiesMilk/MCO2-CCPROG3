@@ -16,14 +16,16 @@ public class Creatures {
     public boolean activeCreature;
     public ImageIcon creaturePicture;
     public ImageIcon creatureTypePicture;
+    public int creatureCount;
     
     // my Creatures constructor
-    public Creatures(String name, String type, String family, int EL) {
+    public Creatures(String name, String type, String family, int EL, int count) {
         this.creatureName = name;
         this.creatureType = type;
         this.creatureFamily = family;
         this.creatureEL = EL;
         this.activeCreature = false;
+        this.creatureCount = count;
         
         switch (name) {
             case "Strawander" -> this.creaturePicture = new ImageIcon("src\\Images\\Pokemons\\strawander.png");

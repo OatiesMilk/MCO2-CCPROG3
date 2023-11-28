@@ -1,9 +1,15 @@
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 public class EvolutionPage extends javax.swing.JFrame {
     private ImageIcon evolve_icon = new ImageIcon("src\\Images\\evolve-icon.png");
+    private Creatures creature1;
+    private Creatures creature2;
+    
     public EvolutionPage() {
         initComponents();
         this.setTitle("Evolution Page");
@@ -35,6 +41,12 @@ public class EvolutionPage extends javax.swing.JFrame {
         comboBox2.setSelectedItem(Creatures.owned_creatures_list.get(1).creatureName);
     }
     
+    public void deleteCreature(int index) {
+        if (index >= 0 && index < Creatures.owned_creatures_list.size()) {
+            Creatures.owned_creatures_list.remove(index);
+        }
+    }
+    
     // Method to resize ImageIcon
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image image = icon.getImage();
@@ -51,13 +63,11 @@ public class EvolutionPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        creature1_panel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         creature1_picture = new javax.swing.JLabel();
-        creature2_panel = new javax.swing.JPanel();
         creature2_picture = new javax.swing.JLabel();
         evolve_button = new javax.swing.JButton();
         mainmenu_button = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         creature2_type = new javax.swing.JLabel();
         creature1_type = new javax.swing.JLabel();
         comboBox1 = new javax.swing.JComboBox<>();
@@ -70,55 +80,28 @@ public class EvolutionPage extends javax.swing.JFrame {
         creature2_name = new javax.swing.JLabel();
         creature1_el = new javax.swing.JLabel();
         creature1_name = new javax.swing.JLabel();
+        evolution_status = new javax.swing.JLabel();
+        evolved_label = new javax.swing.JLabel();
+        evolution_gif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        creature1_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        creature1_panel.setPreferredSize(new java.awt.Dimension(250, 250));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         creature1_picture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout creature1_panelLayout = new javax.swing.GroupLayout(creature1_panel);
-        creature1_panel.setLayout(creature1_panelLayout);
-        creature1_panelLayout.setHorizontalGroup(
-            creature1_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(creature1_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(creature1_picture, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        creature1_panelLayout.setVerticalGroup(
-            creature1_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(creature1_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(creature1_picture, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        creature2_panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        creature2_panel.setPreferredSize(new java.awt.Dimension(250, 250));
+        jPanel1.add(creature1_picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 230, 230));
 
         creature2_picture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout creature2_panelLayout = new javax.swing.GroupLayout(creature2_panel);
-        creature2_panel.setLayout(creature2_panelLayout);
-        creature2_panelLayout.setHorizontalGroup(
-            creature2_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(creature2_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(creature2_picture, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        creature2_panelLayout.setVerticalGroup(
-            creature2_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(creature2_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(creature2_picture, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel1.add(creature2_picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 230, 230));
 
         evolve_button.setPreferredSize(new java.awt.Dimension(50, 50));
+        evolve_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                evolve_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(evolve_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 180, -1, -1));
 
         mainmenu_button.setText("Main Menu");
         mainmenu_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -128,10 +111,9 @@ public class EvolutionPage extends javax.swing.JFrame {
                 mainmenu_buttonActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Success!");
+        jPanel1.add(mainmenu_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, -1, -1));
+        jPanel1.add(creature2_type, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 6, 50, 50));
+        jPanel1.add(creature1_type, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 50, 50));
 
         comboBox1.setPreferredSize(new java.awt.Dimension(100, 22));
         comboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +121,7 @@ public class EvolutionPage extends javax.swing.JFrame {
                 comboBox1ActionPerformed(evt);
             }
         });
+        jPanel1.add(comboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
         comboBox2.setPreferredSize(new java.awt.Dimension(100, 22));
         comboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -146,122 +129,54 @@ public class EvolutionPage extends javax.swing.JFrame {
                 comboBox2ActionPerformed(evt);
             }
         });
+        jPanel1.add(comboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
 
         creature1_el_label.setText("Evolution Level:");
+        jPanel1.add(creature1_el_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 34, -1, -1));
 
         creature1_name_label.setText("Name:");
+        jPanel1.add(creature1_name_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 12, -1, -1));
 
         creature2_el_label.setText("Evolution Level:");
+        jPanel1.add(creature2_el_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 34, -1, -1));
 
         creature2_name_label.setText("Name:");
+        jPanel1.add(creature2_name_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 12, -1, -1));
 
         creature2_el.setText("level");
+        jPanel1.add(creature2_el, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 34, -1, -1));
 
         creature2_name.setText("name");
+        jPanel1.add(creature2_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 12, -1, -1));
 
         creature1_el.setText("level");
+        jPanel1.add(creature1_el, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 34, -1, -1));
 
         creature1_name.setText("name");
+        jPanel1.add(creature1_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 12, -1, -1));
+
+        evolution_status.setFont(new java.awt.Font("Kristen ITC", 0, 18)); // NOI18N
+        evolution_status.setForeground(new java.awt.Color(255, 255, 102));
+        evolution_status.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(evolution_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 366, 25));
+
+        evolved_label.setFont(new java.awt.Font("Kristen ITC", 0, 18)); // NOI18N
+        evolved_label.setForeground(new java.awt.Color(255, 255, 51));
+        evolved_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(evolved_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 366, 25));
+
+        evolution_gif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/evolution-gif.gif"))); // NOI18N
+        jPanel1.add(evolution_gif, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 535));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mainmenu_button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(creature1_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(evolve_button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(creature1_type, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(creature1_name_label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(creature1_name))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(creature1_el_label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(creature1_el)))))
-                        .addGap(0, 19, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(creature2_type, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(creature2_name_label)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(creature2_name))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(creature2_el_label)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(creature2_el))))
-                    .addComponent(creature2_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(12, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(creature2_type, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(creature1_type, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(creature1_name)
-                                    .addComponent(creature1_name_label, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(creature1_el_label)
-                                    .addComponent(creature1_el))
-                                .addGap(6, 6, 6))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(creature2_name_label)
-                                    .addComponent(creature2_name))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(creature2_el)
-                                    .addComponent(creature2_el_label))
-                                .addGap(6, 6, 6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(creature1_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(creature2_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(evolve_button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(mainmenu_button, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -281,6 +196,7 @@ public class EvolutionPage extends javax.swing.JFrame {
                 creature1_picture.setIcon(resizeIcon(creature.creaturePicture, 230, 230));
                 creature1_name.setText(creature.creatureName);
                 creature1_el.setText(String.valueOf(creature.creatureEL));
+                creature1 = creature;
             }
         }
     }//GEN-LAST:event_comboBox1ActionPerformed
@@ -294,9 +210,86 @@ public class EvolutionPage extends javax.swing.JFrame {
                 creature2_picture.setIcon(resizeIcon(creature.creaturePicture, 230, 230));
                 creature2_name.setText(creature.creatureName);
                 creature2_el.setText(String.valueOf(creature.creatureEL));
+                creature2 = creature;
             }
         }
     }//GEN-LAST:event_comboBox2ActionPerformed
+
+    private void evolve_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evolve_buttonActionPerformed
+        if (creature1.creatureName.equalsIgnoreCase(creature2.creatureName) && creature1.creatureCount >= 2) {
+            evolution_status.setText("Evolution Successful!");
+            
+            if (creature1.creatureEL == 3) {
+                evolution_status.setText("Evolution Level Maxed");
+                Timer timer = new Timer(1000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        evolution_status.setText("");
+                    }
+                });
+                timer.setRepeats(false);
+                timer.start();
+            } else {
+                switch (creature1.creatureName) {
+                    case "Strawander" -> {
+                        Creatures.owned_creatures_list.add(new Creatures("Straweleon", "Fire", "Alpha", 2, 1));
+                        evolved_label.setText("Evolved into Straweleon!");
+                    }
+                    case "Straweleon" -> Creatures.owned_creatures_list.add(new Creatures("Strawizard", "Fire", "Alpha", 3, 1));
+                    
+                    case "Chocowool" -> Creatures.owned_creatures_list.add(new Creatures("Chocofluff", "Fire", "Bravo", 2, 1));
+                    case "Chocofluff" -> Creatures.owned_creatures_list.add(new Creatures("Candaros", "Fire", "Bravo", 3, 1));
+                    
+                    case "Parfwit" -> Creatures.owned_creatures_list.add(new Creatures("Parfure", "Fire", "Charlie", 2, 1));
+                    case "Parfure" -> Creatures.owned_creatures_list.add(new Creatures("Parfelure", "Fire", "Charlie", 3, 1));
+                    
+                    case "Brownisaur" -> Creatures.owned_creatures_list.add(new Creatures("Chocosaur", "Grass", "Delta", 2, 1));
+                    case "Chocosaur" -> Creatures.owned_creatures_list.add(new Creatures("Fudgasaur", "Grass", "Delta", 3, 1));
+                    
+                    case "Frubat" -> Creatures.owned_creatures_list.add(new Creatures("Golberry", "Grass", "Echo", 2, 1));
+                    case "Golberry" -> Creatures.owned_creatures_list.add(new Creatures("Croberry", "Grass", "Echo", 3, 1));
+                    
+                    case "Malts" -> Creatures.owned_creatures_list.add(new Creatures("Kirlicake", "Grass", "Foxtrot", 2, 1));
+                    case "Kirlicake" -> Creatures.owned_creatures_list.add(new Creatures("Velvevoir", "Grass", "Foxtrot", 3, 1));
+                    
+                    case "Squirpie" -> Creatures.owned_creatures_list.add(new Creatures("Tartortle", "Water", "Golf", 2, 1));
+                    case "Tartortle" -> Creatures.owned_creatures_list.add(new Creatures("Piestoise", "Water", "Golf", 3, 1));
+                    
+                    case "Chocolite" -> Creatures.owned_creatures_list.add(new Creatures("Chocolish", "Water", "Hotel", 2, 1));
+                    case "Chocolish" -> Creatures.owned_creatures_list.add(new Creatures("Icesundae", "Water", "Hotel", 3, 1));
+                    
+                    case "Oshacone" -> Creatures.owned_creatures_list.add(new Creatures("Dewice", "Water", "India", 2, 1));
+                    case "Dewice" -> Creatures.owned_creatures_list.add(new Creatures("Samurcone", "Water", "India", 3, 1));
+                }
+                
+                for (int i = 0; i < Creatures.owned_creatures_list.size(); i++) {
+                    if (creature1.creatureName.equalsIgnoreCase(Creatures.owned_creatures_list.get(i).creatureName)) {
+                        deleteCreature(i);
+
+                        Timer timer = new Timer(2000, new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                new InventoryPage();
+                                dispose();
+                            }
+                        });
+                        timer.setRepeats(false);
+                        timer.start();
+                    }
+                }
+            }
+        } else {
+            evolution_status.setText("Evolution Failed!");
+            Timer timer = new Timer(1000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    evolution_status.setText("");
+                }
+            });
+            timer.setRepeats(false);
+            timer.start();
+        }
+    }//GEN-LAST:event_evolve_buttonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboBox1;
@@ -305,18 +298,19 @@ public class EvolutionPage extends javax.swing.JFrame {
     private javax.swing.JLabel creature1_el_label;
     private javax.swing.JLabel creature1_name;
     private javax.swing.JLabel creature1_name_label;
-    private javax.swing.JPanel creature1_panel;
     private javax.swing.JLabel creature1_picture;
     private javax.swing.JLabel creature1_type;
     private javax.swing.JLabel creature2_el;
     private javax.swing.JLabel creature2_el_label;
     private javax.swing.JLabel creature2_name;
     private javax.swing.JLabel creature2_name_label;
-    private javax.swing.JPanel creature2_panel;
     private javax.swing.JLabel creature2_picture;
     private javax.swing.JLabel creature2_type;
+    private javax.swing.JLabel evolution_gif;
+    private javax.swing.JLabel evolution_status;
     private javax.swing.JButton evolve_button;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel evolved_label;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mainmenu_button;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,14 +13,17 @@ public class MainMenu extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel = new javax.swing.JPanel();
         inventoryButton = new javax.swing.JButton();
         areasButton = new javax.swing.JButton();
         evolutionButton = new javax.swing.JButton();
+        mainmenu_gif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(300, 300));
         setResizable(false);
-        setSize(new java.awt.Dimension(300, 300));
+        setSize(new java.awt.Dimension(463, 392));
+
+        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         inventoryButton.setText("Inventory");
         inventoryButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -29,6 +32,7 @@ public class MainMenu extends JFrame {
                 inventoryButtonActionPerformed(evt);
             }
         });
+        panel.add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 100, 25));
 
         areasButton.setText("Areas");
         areasButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -37,6 +41,7 @@ public class MainMenu extends JFrame {
                 areasButtonActionPerformed(evt);
             }
         });
+        panel.add(areasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 37, 100, 25));
 
         evolutionButton.setText("Evolution");
         evolutionButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -45,33 +50,20 @@ public class MainMenu extends JFrame {
                 evolutionButtonActionPerformed(evt);
             }
         });
+        panel.add(evolutionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 68, 100, 25));
+
+        mainmenu_gif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mainmenu-gif.gif"))); // NOI18N
+        panel.add(mainmenu_gif, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 463, 392));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(areasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inventoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(196, 196, 196))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(evolutionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(inventoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(areasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(evolutionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(195, Short.MAX_VALUE))
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -98,5 +90,7 @@ public class MainMenu extends JFrame {
     private javax.swing.JButton areasButton;
     private javax.swing.JButton evolutionButton;
     private javax.swing.JButton inventoryButton;
+    private javax.swing.JLabel mainmenu_gif;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }

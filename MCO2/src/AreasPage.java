@@ -13,17 +13,20 @@ public class AreasPage extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel = new javax.swing.JPanel();
         AreaOne = new javax.swing.JButton();
         AreaTwo = new javax.swing.JButton();
         AreaThree = new javax.swing.JButton();
         mainmenu_button = new javax.swing.JButton();
+        areaspage_gif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(300, 300));
         setResizable(false);
-        setSize(new java.awt.Dimension(300, 300));
+        setSize(new java.awt.Dimension(640, 480));
 
-        AreaOne.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        panel.setPreferredSize(new java.awt.Dimension(640, 480));
+        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         AreaOne.setText("Area One");
         AreaOne.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         AreaOne.addActionListener(new java.awt.event.ActionListener() {
@@ -31,8 +34,8 @@ public class AreasPage extends JFrame {
                 AreaOneActionPerformed(evt);
             }
         });
+        panel.add(AreaOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 25));
 
-        AreaTwo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AreaTwo.setText("Area Two");
         AreaTwo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         AreaTwo.addActionListener(new java.awt.event.ActionListener() {
@@ -40,8 +43,8 @@ public class AreasPage extends JFrame {
                 AreaTwoActionPerformed(evt);
             }
         });
+        panel.add(AreaTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, 25));
 
-        AreaThree.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AreaThree.setText("Area Three");
         AreaThree.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         AreaThree.addActionListener(new java.awt.event.ActionListener() {
@@ -49,8 +52,8 @@ public class AreasPage extends JFrame {
                 AreaThreeActionPerformed(evt);
             }
         });
+        panel.add(AreaThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 100, 25));
 
-        mainmenu_button.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         mainmenu_button.setText("Main Menu");
         mainmenu_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         mainmenu_button.addActionListener(new java.awt.event.ActionListener() {
@@ -58,32 +61,20 @@ public class AreasPage extends JFrame {
                 mainmenu_buttonActionPerformed(evt);
             }
         });
+        panel.add(mainmenu_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 100, 25));
+
+        areaspage_gif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/areaspage-gif.gif"))); // NOI18N
+        panel.add(areaspage_gif, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mainmenu_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AreaOne, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AreaTwo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AreaThree, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(90, Short.MAX_VALUE))
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(AreaOne)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AreaTwo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AreaThree)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
-                .addComponent(mainmenu_button)
-                .addContainerGap())
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -113,6 +104,8 @@ public class AreasPage extends JFrame {
     private javax.swing.JButton AreaOne;
     private javax.swing.JButton AreaThree;
     private javax.swing.JButton AreaTwo;
+    private javax.swing.JLabel areaspage_gif;
     private javax.swing.JButton mainmenu_button;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }
